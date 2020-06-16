@@ -34,8 +34,8 @@ class BaseNet(nn.Module):
         self.base_size = base_size
         self.crop_size = crop_size
         # copying modules from pretrained models
-        if backbone == 'resnet50':
-            self.pretrained = resnet.resnet50(pretrained=True, dilated=dilated,
+        if backbone == 'resnet50s':
+            self.pretrained = resnet.resnet50s(pretrained=True, dilated=dilated,
                                               norm_layer=norm_layer, root=root)
         elif backbone == 'resnet101':
             self.pretrained = resnet.resnet101(pretrained=True, dilated=dilated,
