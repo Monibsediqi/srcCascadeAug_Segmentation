@@ -260,7 +260,7 @@ def resnet50s(pretrained=False, root='~/.encoding/models', **kwargs):
     if pretrained:
         from ..models.model_store import get_model_file
         model.load_state_dict(torch.load(
-            get_model_file('resnet50', root=root)), strict=False)
+            get_model_file('resnet50s', root=root)), strict=False)
     return model
 
 
