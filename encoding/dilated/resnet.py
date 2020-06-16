@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 
-__all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
+__all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50s', 'resnet101',
            'resnet152', 'BasicBlock', 'Bottleneck']
 
 model_urls = {
@@ -250,7 +250,7 @@ def resnet34(pretrained=False, **kwargs):
     return model
 
 
-def resnet50(pretrained=False, root='~/.encoding/models', **kwargs):
+def resnet50s(pretrained=False, root='~/.encoding/models', **kwargs):
     """Constructs a ResNet-50 model.
 
     Args:
