@@ -23,7 +23,7 @@ _model_sha1 = {name: checksum for checksum, name in [
     ('3f54fa3b67bac7619cd9b3673f5c8227cf8f4718', 'encnet_resnet101_ade'),
     ]}
 
-encoding_repo_url = 'https://hangzh.s3.amazonaws.com/'
+encoding_repo_url = 'https://hangzh.s3-us-west-1.amazonaws.com/'
 _url_format = '{repo_url}encoding/models/{file_name}.zip'
 
 def short_hash(name):
