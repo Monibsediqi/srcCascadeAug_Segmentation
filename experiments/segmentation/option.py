@@ -94,10 +94,7 @@ class Options():
         # default settings for epochs, batch_size and lr
         if args.epochs is None:
             epoches = {
-                'coco': 30,
                 'citys': 240,
-                'pascal_voc': 50,
-                'pascal_aug': 50,
                 'pcontext': 80,
                 'ade20k': 120,
             }
@@ -108,10 +105,7 @@ class Options():
             args.test_batch_size = args.batch_size
         if args.lr is None:
             lrs = {
-                'coco': 0.01,
                 'citys': 0.01,
-                'pascal_voc': 0.0001,
-                'pascal_aug': 0.001,
                 'pcontext': 0.001,
                 'ade20k': 0.01,
             }
