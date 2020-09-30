@@ -1,7 +1,7 @@
 ###########################################################################
-# Created by: Hang Zhang 
-# Email: zhang.hang@rutgers.edu 
-# Copyright (c) 2017
+# Created by: Monib Sediqi
+# Email: monib.sediqi@gmail.com
+# Copyright (c) 2020
 ###########################################################################
 
 import os

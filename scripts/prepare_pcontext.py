@@ -6,7 +6,7 @@ import argparse
 
 from encoding.utils import download, mkdir
 
-_TARGET_DIR = os.path.expanduser('~/.encoding/data')
+_TARGET_DIR = os.path.expanduser('~/.dataset/data')
 PASD_URL="https://codalabuser.blob.core.windows.net/public/%s"
 
 def parse_args():
@@ -54,7 +54,7 @@ def install_pcontext_api():
 
 if __name__ == '__main__':
     args = parse_args()
-    mkdir(os.path.expanduser('~/.encoding/data'))
+    mkdir(os.path.expanduser('~/.dataset/data'))
     if args.download_dir is not None:
         if os.path.isdir(_TARGET_DIR):
             os.remove(_TARGET_DIR)

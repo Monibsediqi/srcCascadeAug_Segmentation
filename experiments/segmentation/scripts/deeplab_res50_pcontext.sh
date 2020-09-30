@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #train
-CUDA_VISIBLE_DEVICES=0,1,2,3 python -m experiments.segmentation.train --dataset pcontext \
+python --gpu 0 1 2 3  train.py --dataset pcontext \
     --model deeplab --jpu [JPU|JPU_X] --aux --aux-weight 0.4 \
     --backbone resnet50 --checkname deeplab_res50_pcontext
 

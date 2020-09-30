@@ -6,6 +6,7 @@
 
 import random
 import numpy as np
+from augmentation.policy import Augmentation, arsaug_policy
 
 import torch
 import torch.utils.data as data
@@ -65,9 +66,15 @@ class BaseDataset(data.Dataset):
 
     def _sync_transform(self, img, mask):
         # random mirror
-        if random.random() < 0.5:
-            img = img.transpose(Image.FLIP_LEFT_RIGHT)
-            mask = mask.transpose(Image.FLIP_LEFT_RIGHT)
+
+        auto_augment = Augmentation(arsaug_policy())
+        img, mask = auto_augment(img, mask)
+        # print(img.size)
+
+        # if random.random() < 0.5:
+        #     img = img.transpose(Image.FLIP_LEFT_RIGHT)
+        #     mask = mask.transpose(Image.FLIP_LEFT_RIGHT)
+        #     print(img.size)
         crop_size = self.crop_size
         # random scale (short edge from 480 to 720)
         short_size = random.randint(int(self.base_size*0.5), int(self.base_size*2.0))
@@ -97,6 +104,7 @@ class BaseDataset(data.Dataset):
             img = img.filter(ImageFilter.GaussianBlur(
                 radius=random.random()))
         # final transform
+        # print(img.size)
         return img, self._mask_transform(mask)
 
     def _mask_transform(self, mask):

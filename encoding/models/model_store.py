@@ -43,8 +43,8 @@ _model_sha1 = {name: checksum for checksum, name in [
     ('fe76a26551dd5dcf2d474fd37cba99d43f6e984e', 'deeplab_resnest200_pcontext'),
     ('b661fd26c49656e01e9487cd9245babb12f37449', 'deeplab_resnest269_pcontext'),
     ]}
-
-encoding_repo_url = 'https://hangzh.s3-us-west-1.amazonaws.com/'
+#s3-us-west-1
+encoding_repo_url = 'https://s3.us-west-1.wasabisys.com/'
 _url_format = '{repo_url}encoding/models/{file_name}.zip'
 
 def short_hash(name):

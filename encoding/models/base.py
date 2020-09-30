@@ -37,11 +37,11 @@ class BaseNet(nn.Module):
         if backbone == 'resnet50s':
             self.pretrained = resnet.resnet50s(pretrained=True, dilated=dilated,
                                               norm_layer=norm_layer, root=root)
-        elif backbone == 'resnet101':
-            self.pretrained = resnet.resnet101(pretrained=True, dilated=dilated,
+        elif backbone == 'resnet101s':
+            self.pretrained = resnet.resnet101s(pretrained=True, dilated=dilated,
                                                norm_layer=norm_layer, root=root)
-        elif backbone == 'resnet152':
-            self.pretrained = resnet.resnet152(pretrained=True, dilated=dilated,
+        elif backbone == 'resnet152s':
+            self.pretrained = resnet.resnet152s(pretrained=True, dilated=dilated,
                                                norm_layer=norm_layer, root=root)
         else:
             raise RuntimeError('unknown backbone: {}'.format(backbone))

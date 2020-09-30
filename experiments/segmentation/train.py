@@ -19,7 +19,8 @@ from encoding.parallel import DataParallelModel, DataParallelCriterion
 from encoding.datasets import get_segmentation_dataset
 from encoding.models import get_segmentation_model
 
-from .option import Options
+from experiments.segmentation.option import Options
+
 
 torch_ver = torch.__version__[:3]
 if torch_ver == '0.3':
@@ -72,8 +73,9 @@ class Trainer():
         self.model, self.optimizer = model, optimizer
         # using cuda
         if args.cuda:
-            self.model = DataParallelModel(self.model).cuda()
-            self.criterion = DataParallelCriterion(self.criterion).cuda()
+            device_ids =args.gpu
+            self.model = DataParallelModel(self.model, device_ids=device_ids).cuda()
+            self.criterion = DataParallelCriterion(self.criterion, device_ids=device_ids).cuda()
         # resuming checkpoint
         self.best_pred = 0.0
         if args.resume is not None:
@@ -95,7 +97,7 @@ class Trainer():
             args.start_epoch = 0
         # lr scheduler
         self.scheduler = utils.LR_Scheduler(args.lr_scheduler, args.lr,
-                                            args.epochs, len(self.trainloader))
+                                            args.epochs, len(self.trainloader), 20)
 
     def training(self, epoch):
         train_loss = 0.0

@@ -1,7 +1,7 @@
 ###########################################################################
-# Created by: Hang Zhang
-# Email: zhang.hang@rutgers.edu
-# Copyright (c) 2017
+# Created by: Monib Sediqi
+# Email: monib.korea@gmail.com
+# Copyright (c) 2020
 ###########################################################################
 
 import os
@@ -15,7 +15,7 @@ from .base import BaseDataset
 class ADE20KSegmentation(BaseDataset):
     BASE_DIR = 'ADEChallengeData2016'
     NUM_CLASS = 150
-    def __init__(self, root=os.path.expanduser('~/.encoding/data'), split='train',
+    def __init__(self, root=os.path.expanduser('~/.dataset/data'), split='train',
                  mode=None, transform=None, target_transform=None, **kwargs):
         super(ADE20KSegmentation, self).__init__(
             root, split, mode, transform, target_transform, **kwargs)
@@ -29,7 +29,6 @@ class ADE20KSegmentation(BaseDataset):
         if len(self.images) == 0:
             raise(RuntimeError("Found 0 images in subfolders of: \
                 " + root + "\n"))
-
     def __getitem__(self, index):
         img = Image.open(self.images[index]).convert('RGB')
         if self.mode == 'test':
@@ -39,6 +38,7 @@ class ADE20KSegmentation(BaseDataset):
         mask = Image.open(self.masks[index])
         # synchrosized transform
         if self.mode == 'train':
+#TODO: For data augmentation I need to modifiy the _sync_transfrom function which works for all datasets
             img, mask = self._sync_transform(img, mask)
         elif self.mode == 'val':
             img, mask = self._val_sync_transform(img, mask)

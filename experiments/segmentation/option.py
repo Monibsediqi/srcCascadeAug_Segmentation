@@ -11,11 +11,13 @@ class Options():
     def __init__(self):
         parser = argparse.ArgumentParser(description='PyTorch \
             Segmentation')
-        # model and dataset 
+        # model and dataset
+        parser.add_argument("--gpu", nargs='+', default=[0,1,2,3], type=int,
+                            help="number of GPUs (default: 0,1,2,4")
         parser.add_argument('--model', type=str, default='encnet',
                             help='model name (default: encnet)')
-        parser.add_argument('--backbone', type=str, default='resnet50',
-                            help='backbone name (default: resnet50)')
+        parser.add_argument('--backbone', type=str, default='resnet50s',
+                            help='backbone name (default: resnet50s)')
         parser.add_argument('--jpu', type=str, default=None,
                             help='JPU name')
         parser.add_argument('--dilated', action='store_true', default=
@@ -23,7 +25,7 @@ class Options():
         parser.add_argument('--lateral', action='store_true', default=
                             False, help='employ FPN')
         parser.add_argument('--dataset', type=str, default='ade20k',
-                            help='dataset name (default: pascal12)')
+                            help='dataset name (default: ade20k)')
         parser.add_argument('--workers', type=int, default=16,
                             metavar='N', help='dataloader threads')
         parser.add_argument('--base-size', type=int, default=520,
@@ -84,6 +86,7 @@ class Options():
                             help='skip validation during training')
         parser.add_argument('--save-folder', type=str, default='experiments/segmentation/results',
                             help = 'path to save images')
+
 
         # the parser
         self.parser = parser

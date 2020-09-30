@@ -4,8 +4,8 @@ import torch
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 
-__all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50s', 'resnet101',
-           'resnet152', 'BasicBlock', 'Bottleneck']
+__all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50s', 'resnet101s',
+           'resnet152s', 'BasicBlock', 'Bottleneck']
 
 model_urls = {
     'resnet18': 'https://download.pytorch.org/models/resnet18-5c106cde.pth',
@@ -264,7 +264,7 @@ def resnet50s(pretrained=False, root='~/.encoding/models', **kwargs):
     return model
 
 
-def resnet101(pretrained=False, root='~/.encoding/models', **kwargs):
+def resnet101s(pretrained=False, root='~/.encoding/models', **kwargs):
     """Constructs a ResNet-101 model.
 
     Args:
@@ -278,7 +278,7 @@ def resnet101(pretrained=False, root='~/.encoding/models', **kwargs):
     return model
 
 
-def resnet152(pretrained=False, root='~/.encoding/models', **kwargs):
+def resnet152s(pretrained=False, root='~/.encoding/models', **kwargs):
     """Constructs a ResNet-152 model.
 
     Args:
@@ -288,5 +288,5 @@ def resnet152(pretrained=False, root='~/.encoding/models', **kwargs):
     if pretrained:
         from ..models.model_store import get_model_file
         model.load_state_dict(torch.load(
-            get_model_file('resnet152', root=root)), strict=False)
+            get_model_file('resnet152s', root=root)), strict=False)
     return model

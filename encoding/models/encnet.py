@@ -14,7 +14,7 @@ from .base import BaseNet
 from .fcn import FCNHead
 
 __all__ = ['EncNet', 'EncModule', 'get_encnet', 'get_encnet_resnet50_pcontext',
-           'get_encnet_resnet101_pcontext', 'get_encnet_resnet50_ade',
+           'get_encnet_resnet101s_pcontext', 'get_encnet_resnet50_ade',
            'get_encnet_resnet101_ade']
 
 class EncNet(BaseNet):
@@ -170,7 +170,7 @@ def get_encnet_resnet50_pcontext(pretrained=False, root='~/.encoding/models', **
     return get_encnet('pcontext', 'resnet50', pretrained, root=root, aux=True,
                       base_size=520, crop_size=480, **kwargs)
 
-def get_encnet_resnet101_pcontext(pretrained=False, root='~/.encoding/models', **kwargs):
+def get_encnet_resnet101s_pcontext(pretrained=False, root='~/.encoding/models', **kwargs):
     r"""EncNet-PSP model from the paper `"Context Encoding for Semantic Segmentation"
     <https://arxiv.org/pdf/1803.08904.pdf>`_
 
@@ -184,10 +184,10 @@ def get_encnet_resnet101_pcontext(pretrained=False, root='~/.encoding/models', *
 
     Examples
     --------
-    >>> model = get_encnet_resnet101_pcontext(pretrained=True)
+    >>> model = get_encnet_resnet101s_pcontext(pretrained=True)
     >>> print(model)
     """
-    return get_encnet('pcontext', 'resnet101', pretrained, root=root, aux=True,
+    return get_encnet('pcontext', 'resnet101s', pretrained, root=root, aux=True,
                       base_size=520, crop_size=480, lateral=True, **kwargs)
 
 def get_encnet_resnet50_ade(pretrained=False, root='~/.encoding/models', **kwargs):
@@ -227,7 +227,7 @@ def get_encnet_resnet101_ade(pretrained=False, root='~/.encoding/models', **kwar
     >>> model = get_encnet_resnet50_ade(pretrained=True)
     >>> print(model)
     """
-    return get_encnet('ade20k', 'resnet101', pretrained, root=root, aux=True,
+    return get_encnet('ade20k', 'resnet101s', pretrained, root=root, aux=True,
                       base_size=640, crop_size=576, lateral=True, **kwargs)
 
 def get_encnet_resnet152_ade(pretrained=False, root='~/.encoding/models', **kwargs):

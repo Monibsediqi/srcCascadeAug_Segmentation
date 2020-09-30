@@ -1,7 +1,7 @@
 ###########################################################################
-# Created by: Hang Zhang 
-# Email: zhang.hang@rutgers.edu 
-# Copyright (c) 2017
+# Created by: Monib Sediqi
+# Email: monib.sediqi@gmail.com
+# Copyright (c) 2020
 ###########################################################################
 
 import os
@@ -19,7 +19,7 @@ from encoding.nn import BatchNorm
 from encoding.datasets import get_segmentation_dataset, test_batchify_fn
 from encoding.models import get_model, get_segmentation_model, MultiEvalModule
 
-from .option import Options
+from experiments.segmentation.option import Options
 
 
 def test(args):
@@ -62,7 +62,8 @@ def test(args):
         [0.5, 0.75, 1.0, 1.25, 1.5, 1.75]
     if not args.ms:
         scales = [1.0]
-    evaluator = MultiEvalModule(model, testset.num_class, scales=scales, flip=args.ms).cuda()
+        device_ids = args.gpu
+    evaluator = MultiEvalModule(model, testset.num_class, scales=scales, flip=args.ms, device_ids=device_ids).cuda()
     evaluator.eval()
     metric = utils.SegmentationMetric(testset.num_class)
 

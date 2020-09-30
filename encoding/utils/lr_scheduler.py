@@ -13,7 +13,7 @@ import math
 class LR_Scheduler(object):
     """Learning Rate Scheduler
 
-    Step mode: ``lr = baselr * 0.1 ^ {floor(epoch-1 / lr_step)}``
+    Step mode: ``lr = baselr * 0.1 ^ {floor(epoch-1 / lr_step)}`` lr_step is basically epochs_drop
 
     Cosine mode: ``lr = baselr * 0.5 * (1 + cos(iter/maxiter))``
 
@@ -53,7 +53,7 @@ class LR_Scheduler(object):
         if self.warmup_iters > 0 and T < self.warmup_iters:
             lr = lr * 1.0 * T / self.warmup_iters
         if epoch > self.epoch:
-            print('\n=>Epoches %i, learning rate = %.4f, \
+            print('\n=>Epoches %i, learning rate = %.10f, \
                 previous best = %.4f' % (epoch, lr, best_pred))
             self.epoch = epoch
         assert lr >= 0
