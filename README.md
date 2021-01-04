@@ -46,7 +46,7 @@ python -m scripts.prepare_pcontext
 ```
 | Method | Backbone | Baseline (mIoU)  | Ours (mIoU) |
 |:----|:----|:---:|:---:|
-| DeepLabv2 | ResNet-101 + COCO | 45.7 | **46.79** |
+| Deeplabv2 | ResNet-101 + COCO | 45.7 | **46.79** |
 | RefineNet | ResNet-152 | 47.3 | **49.62** |
 | EncNet | ResNet-101 | 51.7 | **52.27** |
 | DUsampling | Xception-71 | **54.91**  |  |
