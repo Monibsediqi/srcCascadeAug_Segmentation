@@ -18,9 +18,9 @@ Contact: Monib Sediqi (monib.korea@gmail.com)
 
 
 ## Overview
-### Framework
+### Data Augmentation
 ![](images/cda_augmentation.JPG)
-### Joint Pyramid Upsampling (JPU)
+### Cascade Data Augmentation
 ![](images/cda_iterations.JPG)
 
 ## Install
@@ -48,10 +48,10 @@ python -m scripts.prepare_pcontext
 |:----|:----|:---:|:---:|
 | DeepLabv2 | ResNet-101 + COCO | 45.7 | **46.79** |
 | RefineNet | ResNet-152 | 47.3 | **49.62** |
-| EncNet | ResNet-101 | 51.7 | 52.27 |
-| DUsampling | Xception-71 | 54.91  |  |
-| PSPNet | ResNet-101 | 43.29 (MS) | 44.47 | 
-| FastFCN | ResNet-50 | 51.2  | 52.16  |
+| EncNet | ResNet-101 | 51.7 | **52.27** |
+| DUsampling | Xception-71 | **54.91**  |  |
+| PSPNet | ResNet-101 | 43.29 (MS) | **44.47** | 
+| FastFCN | ResNet-50 | 51.2  | **52.16**  |
 ### 
 ## Visual Results
 |Dataset|Input|FastFCN|Ours|
