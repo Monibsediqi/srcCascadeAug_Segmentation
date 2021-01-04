@@ -2,11 +2,10 @@
 # Created by: Monib Sediqi                                  #
 # Email: monib.korea@gmail.com                          `   #
 # Copyright (c) 2020                                        #
-# LICENSE file in the root directory of this source tree   #
 #############################################################
 
 
-from augmentation.autoaug import *  #Only random_augment_list , get_augment and apply_augment is imported
+from cda_augmentation.cda import *  #Only random_augment_list , get_augment and apply_augment is imported
 from collections import defaultdict
 import random
 
