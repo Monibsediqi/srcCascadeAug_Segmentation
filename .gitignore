@@ -8,8 +8,6 @@ runs/
 data/
 build/
 results/
-results_ade_test/
-results_ms_ade_test/
 results_pcontext/
 
 .idea
