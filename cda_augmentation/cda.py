@@ -1,8 +1,7 @@
 #############################################################################
 # Created by: Monib Sediqi                                                  #
 # Email: monib.sediqi@gmail.com                                             #
-# Copyright (c) 2020                                                        #
-# LICENSE file in the root directory of this source tree                    #
+# Copyright (c) 2020                                                        #                  #
 #############################################################################
 #write source where you adopt code from
 # https://github.com/kakaobrain/fast-autoaugment

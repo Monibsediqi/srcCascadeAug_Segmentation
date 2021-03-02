@@ -6,7 +6,7 @@
 
 import random
 import numpy as np
-from augmentation.policy import Augmentation, arsaug_policy
+from cda_augmentation.policy import Augmentation, arsaug_policy
 
 import torch
 import torch.utils.data as data
