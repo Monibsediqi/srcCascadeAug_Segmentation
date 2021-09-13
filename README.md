@@ -1,5 +1,5 @@
 # Improved Image Semantic Segmentation based on Cascade Data Augmentation
-[[Home]](http://monibsediqi.github.io)    [[Paper]](https://monibsediqi.github.io/assets/files/csci_paper.pdf)   [[Home]](http://wuhuikai.me) 
+[[Home]](http://monibsediqi.github.io)    [[Paper]](https://monibsediqi.github.io/assets/files/csci_paper.pdf)  
 
 
 Implementation of CDA for Image Semantic Segmentation: Rethinking Dilated Convolution in the Backbone for Semantic Segmentation**.   
